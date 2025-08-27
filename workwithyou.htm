@@ -1,36 +1,34 @@
-
 <!DOCTYPE html>
 <html lang="ar" dir="rtl">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Wokwidyou - نظام التسويق بالعمولة</title>
-    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700&display=swap" rel="stylesheet">
+    <title>Wookedyou - كوكيديو</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <style>
         :root {
-            --primary: #4e60d3;
-            --secondary: #8e59d7;
-            --accent: #ff6b6b;
-            --light: #f8f9fa;
-            --dark: #343a40;
-            --success: #28a745;
+            --primary: #6A0DAD;
+            --secondary: #FF9E01;
+            --accent: #00C2A8;
+            --light: #F8F9FA;
+            --dark: #1E1E2A;
+            --gray: #6C757D;
         }
         
         * {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
-            font-family: 'Cairo', sans-serif;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
         }
         
         body {
-            background-color: #f5f7ff;
+            background-color: var(--light);
             color: var(--dark);
             line-height: 1.6;
         }
         
         .container {
-            width: 100%;
             max-width: 1200px;
             margin: 0 auto;
             padding: 0 15px;
@@ -38,217 +36,345 @@
         
         /* Header Styles */
         header {
-            background: linear-gradient(135deg, var(--primary), var(--secondary));
+            background: linear-gradient(135deg, var(--primary), #8A2BE2);
             color: white;
-            padding: 1rem 0;
+            padding: 15px 0;
             box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+            position: sticky;
+            top: 0;
+            z-index: 100;
         }
         
-        nav {
+        .header-content {
             display: flex;
             justify-content: space-between;
             align-items: center;
         }
         
         .logo {
-            font-size: 1.8rem;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        
+        .logo img {
+            height: 40px;
+        }
+        
+        .logo h1 {
+            font-size: 24px;
             font-weight: 700;
         }
         
         .nav-links {
             display: flex;
-            list-style: none;
-        }
-        
-        .nav-links li {
-            margin-left: 1.5rem;
+            gap: 25px;
         }
         
         .nav-links a {
             color: white;
             text-decoration: none;
-            font-weight: 600;
-            transition: all 0.3s ease;
+            font-weight: 500;
+            transition: color 0.3s;
         }
         
         .nav-links a:hover {
-            color: var(--accent);
+            color: var(--secondary);
+        }
+        
+        .auth-buttons {
+            display: flex;
+            gap: 15px;
         }
         
         .btn {
-            display: inline-block;
-            padding: 0.6rem 1.5rem;
-            background-color: var(--accent);
-            color: white;
+            padding: 8px 20px;
             border-radius: 50px;
-            text-decoration: none;
-            font-weight: 600;
-            transition: all 0.3s ease;
             border: none;
+            font-weight: 600;
             cursor: pointer;
+            transition: all 0.3s;
         }
         
-        .btn:hover {
-            background-color: #ff5252;
+        .btn-outline {
+            background: transparent;
+            border: 2px solid white;
+            color: white;
+        }
+        
+        .btn-outline:hover {
+            background: white;
+            color: var(--primary);
+        }
+        
+        .btn-primary {
+            background: var(--secondary);
+            color: white;
+        }
+        
+        .btn-primary:hover {
+            background: #FF8A00;
             transform: translateY(-2px);
         }
         
         /* Hero Section */
         .hero {
-            padding: 4rem 0;
+            background: linear-gradient(rgba(106, 13, 173, 0.9), rgba(106, 13, 173, 0.8)), url('https://images.unsplash.com/photo-1516387938699-a93567ec168e?ixlib=rb-4.0.3') center/cover;
+            color: white;
+            padding: 80px 0;
             text-align: center;
-            background: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="100" height="100" viewBox="0 0 100 100"><rect width="100" height="100" fill="%234e60d3" opacity="0.1"/><path d="M0 0L100 100" stroke="%234e60d3" stroke-width="2" opacity="0.2"/></svg>');
         }
         
-        .hero h1 {
-            font-size: 3rem;
-            margin-bottom: 1rem;
-            color: var(--primary);
+        .hero-content {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+        
+        .hero h2 {
+            font-size: 2.8rem;
+            margin-bottom: 20px;
         }
         
         .hero p {
             font-size: 1.2rem;
-            max-width: 700px;
-            margin: 0 auto 2rem;
-            color: var(--dark);
+            margin-bottom: 30px;
+            opacity: 0.9;
+        }
+        
+        .search-box {
+            background: white;
+            border-radius: 50px;
+            padding: 5px;
+            display: flex;
+            max-width: 600px;
+            margin: 0 auto;
+        }
+        
+        .search-box input {
+            flex: 1;
+            border: none;
+            padding: 15px 20px;
+            border-radius: 50px;
+            outline: none;
+            font-size: 1rem;
+        }
+        
+        .search-box button {
+            background: var(--secondary);
+            color: white;
+            border: none;
+            border-radius: 50px;
+            padding: 15px 30px;
+            cursor: pointer;
+            font-weight: 600;
+            transition: background 0.3s;
+        }
+        
+        .search-box button:hover {
+            background: #FF8A00;
         }
         
         /* Features Section */
         .features {
-            padding: 4rem 0;
-            background-color: white;
+            padding: 80px 0;
+            background: white;
         }
         
         .section-title {
             text-align: center;
-            margin-bottom: 3rem;
+            margin-bottom: 50px;
+        }
+        
+        .section-title h2 {
+            font-size: 2.2rem;
             color: var(--primary);
+            margin-bottom: 15px;
+        }
+        
+        .section-title p {
+            color: var(--gray);
+            max-width: 600px;
+            margin: 0 auto;
         }
         
         .features-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 2rem;
+            gap: 30px;
         }
         
         .feature-card {
-            background-color: var(--light);
-            padding: 2rem;
-            border-radius: 10px;
+            background: var(--light);
+            border-radius: 12px;
+            padding: 30px;
             text-align: center;
             box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
-            transition: transform 0.3s ease;
+            transition: transform 0.3s;
         }
         
         .feature-card:hover {
-            transform: translateY(-5px);
+            transform: translateY(-10px);
         }
         
         .feature-icon {
-            font-size: 2.5rem;
-            color: var(--primary);
-            margin-bottom: 1rem;
-        }
-        
-        /* How It Works */
-        .how-it-works {
-            padding: 4rem 0;
-            background-color: #f5f7ff;
-        }
-        
-        .steps {
-            display: flex;
-            justify-content: space-around;
-            flex-wrap: wrap;
-            margin-top: 2rem;
-        }
-        
-        .step {
-            text-align: center;
-            max-width: 250px;
-            margin: 1rem;
-            position: relative;
-        }
-        
-        .step-number {
-            width: 50px;
-            height: 50px;
-            background-color: var(--primary);
+            background: var(--primary);
             color: white;
+            width: 70px;
+            height: 70px;
             border-radius: 50%;
             display: flex;
             align-items: center;
             justify-content: center;
-            font-size: 1.5rem;
-            font-weight: bold;
-            margin: 0 auto 1rem;
+            margin: 0 auto 20px;
+            font-size: 24px;
         }
         
-        /* Pricing */
-        .pricing {
-            padding: 4rem 0;
-            background-color: white;
+        .feature-card h3 {
+            margin-bottom: 15px;
+            color: var(--dark);
         }
         
-        .pricing-cards {
+        /* Products Section */
+        .products {
+            padding: 80px 0;
+            background: #F3F4F6;
+        }
+        
+        .products-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 25px;
+        }
+        
+        .product-card {
+            background: white;
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+            transition: transform 0.3s;
+        }
+        
+        .product-card:hover {
+            transform: translateY(-5px);
+        }
+        
+        .product-img {
+            height: 200px;
+            background: linear-gradient(45deg, #6A0DAD, #8A2BE2);
             display: flex;
+            align-items: center;
             justify-content: center;
-            flex-wrap: wrap;
-            gap: 2rem;
-        }
-        
-        .pricing-card {
-            background: linear-gradient(135deg, var(--primary), var(--secondary));
             color: white;
-            padding: 2.5rem;
-            border-radius: 10px;
-            text-align: center;
-            width: 300px;
-            box-shadow: 0 10px 30px rgba(78, 96, 211, 0.2);
+            font-size: 3rem;
         }
         
-        .price {
-            font-size: 2.5rem;
-            margin: 1rem 0;
+        .product-content {
+            padding: 20px;
+        }
+        
+        .product-content h3 {
+            margin-bottom: 10px;
+            color: var(--dark);
+        }
+        
+        .product-content p {
+            color: var(--gray);
+            margin-bottom: 15px;
+        }
+        
+        .product-price {
+            color: var(--primary);
+            font-weight: 700;
+            font-size: 1.2rem;
+            margin-bottom: 15px;
         }
         
         /* Footer */
         footer {
-            background-color: var(--dark);
+            background: var(--dark);
             color: white;
-            padding: 3rem 0 1rem;
-            text-align: center;
+            padding: 60px 0 30px;
         }
         
-        .footer-links {
-            display: flex;
-            justify-content: center;
+        .footer-content {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 40px;
+            margin-bottom: 40px;
+        }
+        
+        .footer-column h3 {
+            font-size: 1.2rem;
+            margin-bottom: 20px;
+            color: var(--secondary);
+        }
+        
+        .footer-column ul {
             list-style: none;
-            margin: 1rem 0;
         }
         
-        .footer-links li {
-            margin: 0 1rem;
+        .footer-column ul li {
+            margin-bottom: 10px;
         }
         
-        .footer-links a {
-            color: white;
+        .footer-column a {
+            color: #DDD;
             text-decoration: none;
+            transition: color 0.3s;
         }
         
-        /* Responsive */
+        .footer-column a:hover {
+            color: var(--secondary);
+        }
+        
+        .social-icons {
+            display: flex;
+            gap: 15px;
+            margin-top: 20px;
+        }
+        
+        .social-icons a {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 40px;
+            height: 40px;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 50%;
+            transition: background 0.3s;
+        }
+        
+        .social-icons a:hover {
+            background: var(--secondary);
+        }
+        
+        .copyright {
+            text-align: center;
+            padding-top: 30px;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            color: #AAA;
+            font-size: 0.9rem;
+        }
+        
+        /* Responsive Design */
         @media (max-width: 768px) {
-            .nav-links {
-                display: none;
-            }
-            
-            .hero h1 {
-                font-size: 2.2rem;
-            }
-            
-            .steps {
+            .header-content {
                 flex-direction: column;
-                align-items: center;
+                gap: 15px;
+            }
+            
+            .nav-links {
+                gap: 15px;
+                flex-wrap: wrap;
+                justify-content: center;
+            }
+            
+            .hero h2 {
+                font-size: 2rem;
+            }
+            
+            .hero p {
+                font-size: 1rem;
             }
         }
     </style>
@@ -257,138 +383,122 @@
     <!-- Header -->
     <header>
         <div class="container">
-            <nav>
-                <div class="logo">Wokwidyou</div>
-                <ul class="nav-links">
-                    <li><a href="#">الرئيسية</a></li>
-                    <li><a href="#">كيف يعمل</a></li>
-                    <li><a href="#">الأسعار</a></li>
-                    <li><a href="#">عن nosotros</a></li>
-                    <li><a href="#">اتصل بنا</a></li>
-                </ul>
-                <a href="#" class="btn">تسجيل الدخول</a>
-            </nav>
+            <div class="header-content">
+                <div class="logo">
+                    <i class="fas fa-gem" style="font-size: 32px; color: #FF9E01;"></i>
+                    <h1>Wookedyou</h1>
+                </div>
+                
+                <nav class="nav-links">
+                    <a href="#">الرئيسية</a>
+                    <a href="#">منتجاتنا</a>
+                    <a href="#">خدماتنا</a>
+                    <a href="#">عنا</a>
+                    <a href="#">اتصل بنا</a>
+                </nav>
+                
+                <div class="auth-buttons">
+                    <button class="btn btn-outline">تسجيل الدخول</button>
+                    <button class="btn btn-primary">إنشاء حساب</button>
+                </div>
+            </div>
         </div>
     </header>
 
     <!-- Hero Section -->
     <section class="hero">
         <div class="container">
-            <h1>اربح مع كل مشترك جديد في Wokwidyou</h1>
-            <p>انضم إلى نظام التسويق بالعمولة الخاص بنا وابدأ في جني الأرباح من خلال شبكتك. كل مشترك تجلبه يعني أرباح أكثر لك!</p>
-            <a href="#" class="btn">اشترك الآن</a>
+            <div class="hero-content">
+                <h2>اكتشف عالمًا من المنتجات الاستثنائية</h2>
+                <p>نسعى دائمًا لتقديم الأفضل لعملائنا الكرام من خلال منتجات فريدة وخدمات متميزة</p>
+                
+                <div class="search-box">
+                    <input type="text" placeholder="ابحث عن المنتجات والخدمات...">
+                    <button><i class="fas fa-search"></i> بحث</button>
+                </div>
+            </div>
         </div>
     </section>
 
     <!-- Features Section -->
     <section class="features">
         <div class="container">
-            <h2 class="section-title">مميزات Wokwidyou</h2>
+            <div class="section-title">
+                <h2>لماذا تختار Wookedyou؟</h2>
+                <p>نحن نقدم مميزات رائعة تجعل تجربتك معنا استثنائية</p>
+            </div>
+            
             <div class="features-grid">
                 <div class="feature-card">
-                    <div class="feature-icon">💸</div>
-                    <h3>أرباح متعددة المستويات</h3>
-                    <p>احصل على نسبة من اشتراك الأعضاء الذين يجلبونهم أعضاء شبكتك حتى 20 مستوى.</p>
+                    <div class="feature-icon">
+                        <i class="fas fa-shipping-fast"></i>
+                    </div>
+                    <h3>شحن سريع</h3>
+                    <p>خدمة شحن سريعة وموثوقة لجميع أنحاء العالم مع تتبع الشحنات</p>
                 </div>
+                
                 <div class="feature-card">
-                    <div class="feature-icon">📊</div>
-                    <h3>لوحة تحكم متكاملة</h3>
-                    <p>تابع أرباحك وشبكتك وإحصائياتك من خلال لوحة تحكم سهلة الاستخدام.</p>
+                    <div class="feature-icon">
+                        <i class="fas fa-shield-alt"></i>
+                    </div>
+                    <h3>آمن وسليم</h3>
+                    <p>معاملات آمنة وحماية للبيانات مع ضمان الجودة للمنتجات</p>
                 </div>
+                
                 <div class="feature-card">
-                    <div class="feature-icon">🚀</div>
-                    <h3>دعم فني متكامل</h3>
-                    <p>فريق دعم فني متاح لمساعدتك في أي استفسار أو مشكلة تواجهك.</p>
+                    <div class="feature-icon">
+                        <i class="fas fa-headset"></i>
+                    </div>
+                    <h3>دعم فني</h3>
+                    <p>فريق دعم فني متاح على مدار الساعة لمساعدتك في أي استفسار</p>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- How It Works -->
-    <section class="how-it-works">
+    <!-- Products Section -->
+    <section class="products">
         <div class="container">
-            <h2 class="section-title">كيف يعمل النظام؟</h2>
-            <div class="steps">
-                <div class="step">
-                    <div class="step-number">1</div>
-                    <h3>أنشئ حسابك</h3>
-                    <p>قم بالتسجيل في الموقع واختر باقة الاشتراك المناسبة لك.</p>
-                </div>
-                <div class="step">
-                    <div class="step-number">2</div>
-                    <h3>انشر رابطك الخاص</h3>
-                    <p>استخدم رابط التسجيل الخاص بك لجلب أعضاء جدد إلى المنصة.</p>
-                </div>
-                <div class="step">
-                    <div class="step-number">3</div>
-                    <h3>اكسب العمولات</h3>
-                    <p>احصل على نسبة من اشتراك كل عضو جديد تدخله إلى المنصة.</p>
-                </div>
-                <div class="step">
-                    <div class="step-number">4</div>
-                    <h3>تابع أرباحك</h3>
-                    <p>شاهد أرباحك تنمو مع كل عضو جديد في شبكتك حتى 20 مستوى.</p>
-                </div>
+            <div class="section-title">
+                <h2>منتجاتنا المميزة</h2>
+                <p>استكشف مجموعة منتجاتنا الحصرية عالية الجودة</p>
             </div>
-            <div style="text-align:center; margin-top:2rem;">
-                <a href="https://github.com/" target="_blank" class="btn">شاهد المشروع على GitHub</a>
-            </div>
-        </div>
-    </section> <section class="how-it-works"></section></div>
-        <div class="container">
-            <h2 class="section-title">كيف يعمل النظام؟</h2>
-            <div class="steps">
-                <div class="step">
-                    <div class="step-number">1</div>
-                    <h3>أنشئ حسابك</h3>
-                    <p>قم بالتسجيل في الموقع واختر باقة الاشتراك المناسبة لك.</p>
+            
+            <div class="products-grid">
+                <div class="product-card">
+                    <div class="product-img">
+                        <i class="fas fa-laptop"></i>
+                    </div>
+                    <div class="product-content">
+                        <h3>أجهزة تقنية حديثة</h3>
+                        <p>أحدث الأجهزة التقنية بمواصفات عالية وأسعار تنافسية</p>
+                        <div class="product-price">1,200 ر.س</div>
+                        <button class="btn btn-primary">أضف إلى السلة</button>
+                    </div>
                 </div>
-                <div class="step">
-                    <div class="step-number">2</div>
-                    <h3>انشر رابطك الخاص</h3>
-                    <p>استخدم رابط التسجيل الخاص بك لجلب أعضاء جدد إلى المنصة.</p>
+                
+                <div class="product-card">
+                    <div class="product-img">
+                        <i class="fas fa-tshirt"></i>
+                    </div>
+                    <div class="product-content">
+                        <h3>ملابس عصرية</h3>
+                        <p>تصميمات عصرية وجودة عالية من أفضل المصممين العالميين</p>
+                        <div class="product-price">250 ر.س</div>
+                        <button class="btn btn-primary">أضف إلى السلة</button>
+                    </div>
                 </div>
-                <div class="step">
-                    <div class="step-number">3</div>
-                    <h3>اكسب العمولات</h3>
-                    <p>احصل على نسبة من اشتراك كل عضو جديد تدخله إلى المنصة.</p>
-                </div>
-                <div class="step">
-                    <div class="step-number">4</div>
-                    <h3>تابع أرباحك</h3>
-                    <p>شاهد أرباحك تنمو مع كل عضو جديد في شبكتك حتى 20 مستوى.</p>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Pricing -->
-    <section class="pricing">
-        <div class="container">
-            <h2 class="section-title">باقات الاشتراك</h2>
-            <div class="pricing-cards">
-                <div class="pricing-card">
-                    <h3>الباقة الأساسية</h3>
-                    <div class="price">$50</div>
-                    <p>اشتراك شهري</p>
-                    <ul style="list-style: none; margin: 1.5rem 0;">
-                        <li>عمولة 10% على المستوى الأول</li>
-                        <li>عمولة 5% على المستوى الثاني</li>
-                        <li>دعم فني أساسي</li>
-                    </ul>
-                    <a href="#" class="btn">اشترك الآن</a>
-                </div>
-                <div class="pricing-card">
-                    <h3>الباقة المميزة</h3>
-                    <div class="price">$100</div>
-                    <p>اشتراك شهري</p>
-                    <ul style="list-style: none; margin: 1.5rem 0;">
-                        <li>عمولة 15% على المستوى الأول</li>
-                        <li>عمولة 10% على المستوى الثاني</li>
-                        <li>عمولة 5% على المستوى الثالث</li>
-                        <li>دعم فني مميز</li>
-                    </ul>
-                    <a href="#" class="btn">اشترك الآن</a>
+                
+                <div class="product-card">
+                    <div class="product-img">
+                        <i class="fas fa-home"></i>
+                    </div>
+                    <div class="product-content">
+                        <h3>ديكور منزلي</h3>
+                        <p>تشكيلة رائعة من قطع الديكور التي تضيف لمسة جمالية لمنزلك</p>
+                        <div class="product-price">450 ر.س</div>
+                        <button class="btn btn-primary">أضف إلى السلة</button>
+                    </div>
                 </div>
             </div>
         </div>
@@ -397,21 +507,90 @@
     <!-- Footer -->
     <footer>
         <div class="container">
-            <div class="logo">Wokwidyou</div>
-            <ul class="footer-links">
-                <li><a href="#">الشروط والأحكام</a></li>
-                <li><a href="#">سياسة الخصوصية</a></li>
-                <li><a href="#">اتصل بنا</a></li>
-                <li><a href="#">الأسئلة الشائعة</a></li>
-            </ul>
-            <p>© 2023 Wokwidyou. جميع الحقوق محفوظة.</p>
+            <div class="footer-content">
+                <div class="footer-column">
+                    <h3>عن Wookedyou</h3>
+                    <p>نحن منصة تسوق رائدة نقدم منتجات وخدمات عالية الجودة لعملائنا في جميع أنحاء العالم.</p>
+                    <div class="social-icons">
+                        <a href="#"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#"><i class="fab fa-twitter"></i></a>
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                        <a href="#"><i class="fab fa-linkedin-in"></i></a>
+                    </div>
+                </div>
+                
+                <div class="footer-column">
+                    <h3>روابط سريعة</h3>
+                    <ul>
+                        <li><a href="#">الرئيسية</a></li>
+                        <li><a href="#">منتجاتنا</a></li>
+                        <li><a href="#">خدماتنا</a></li>
+                        <li><a href="#">عنا</a></li>
+                        <li><a href="#">اتصل بنا</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-column">
+                    <h3>خدماتنا</h3>
+                    <ul>
+                        <li><a href="#">التسوق الإلكتروني</a></li>
+                        <li><a href="#">الشحن والتوصيل</a></li>
+                        <li><a href="#">الدفع الآمن</a></li>
+                        <li><a href="#">الدعم الفني</a></li>
+                        <li><a href="#">الأسئلة الشائعة</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-column">
+                    <h3>اتصل بنا</h3>
+                    <ul>
+                        <li><i class="fas fa-map-marker-alt"></i> الرياض، المملكة العربية السعودية</li>
+                        <li><i class="fas fa-phone"></i> +966 12 345 6789</li>
+                        <li><i class="fas fa-envelope"></i> info@wookedyou.com</li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="copyright">
+                <p>© 2023 Wookedyou. جميع الحقوق محفوظة</p>
+            </div>
         </div>
     </footer>
 
     <script>
-        // يمكن إضافة interactivity هنا لاحقًا
+        // Simple interactivity
         document.addEventListener('DOMContentLoaded', function() {
-            console.log('Wokwidyou Website Loaded');
+            const buttons = document.querySelectorAll('.btn-primary');
+            
+            buttons.forEach(button => {
+                button.addEventListener('click', function() {
+                    this.innerHTML = '<i class="fas fa-check"></i> تمت الإضافة';
+                    this.style.background = '#34A853';
+                    
+                    setTimeout(() => {
+                        this.innerHTML = '<i class="fas fa-shopping-cart"></i> أضف إلى السلة';
+                        this.style.background = '';
+                    }, 2000);
+                });
+            });
+            
+            // Search functionality
+            const searchBox = document.querySelector('.search-box input');
+            const searchButton = document.querySelector('.search-box button');
+            
+            searchButton.addEventListener('click', function() {
+                if (searchBox.value.trim() !== '') {
+                    alert('جاري البحث عن: ' + searchBox.value);
+                } else {
+                    alert('يرجى إدخال كلمة البحث');
+                }
+            });
+            
+            searchBox.addEventListener('keypress', function(e) {
+                if (e.key === 'Enter') {
+                    searchButton.click();
+                }
+            });
         });
     </script>
 </body>
